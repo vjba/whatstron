@@ -1,0 +1,55 @@
+{
+    "name": "whatstron",
+    "productName": "WhatsTron",
+    "version": "1.0.0",
+    "description": "Desktop WhatsApp client for Linux, built with Electron",
+    "main": "main.js",
+    "license": "MIT",
+    "repository": "git+ssh://github.com/vjba/whatstron.git",
+    "keywords": [
+        "Electron",
+        "WhatsApp",
+        "Desktop",
+        "Linux",
+        "AppImage",
+        "deb"
+    ],
+    "author": {
+        "name": "vjba",
+        "email": "hello@vjba.me",
+        "url": "https://vjba.me"
+    },
+    "scripts": {
+        "postinstall": "electron-builder install-app-deps",
+        "start": "electron .",
+        "pack": "electron-builder --dir",
+        "dist": "electron-builder --linux"
+    },
+    "dependencies": {
+        "electron-context-menu": "^0.12.1",
+        "electron-debug": "^3.0.0",
+        "electron-store": "^3.3.0",
+        "electron-unhandled": "^2.2.0",
+        "electron-updater": "^4.0.14",
+        "electron-util": "^0.12.0"
+    },
+    "devDependencies": {
+        "electron": "^4.2.6",
+        "electron-builder": "^20.43.0"
+    },
+    "build": {
+        "appId": "com.vjba.WhatsTron",
+        "linux": {
+            "icon": "assets/",
+            "target": [
+                "AppImage",
+                "deb",
+                "tar.xz"
+            ],
+            "category": "Network;Chat",
+            "desktop": {
+                "StartupWMClass": "whatstron"
+            }
+        }
+    }
+}
