@@ -13,6 +13,7 @@ let appIcon = null
 let URL = 'https://web.whatsapp.com'
 
 // Determine appropriate icon for platform
+// FIXME Why check for  other os's?
 if (platform === 'darwin' || platform === 'linux') {
   trayIcon = path.join(__dirname, 'assets', 'icon.png')
 } else if (platform === 'win32') {
@@ -43,6 +44,7 @@ function createWindow () {
   })
 
   // Change User-Agent to circumvent 'WhatsApp works with Google Chrome 49+' alert on startup
+  // TODO Introduce array and randomizer for multiple agents
   mainWindow.webContents.setUserAgent('Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.90 Safari/537.36')
 
   // Click close hides window
@@ -103,6 +105,7 @@ function createWindow () {
 }
 
 // Prevent multiple instances of the app
+// FIXME GH issue #1
 app.on('second-instance', () => {
   if (mainWindow) {
     if (mainWindow.isMinimized()) {
