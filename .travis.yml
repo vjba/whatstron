@@ -1,0 +1,27 @@
+dist: xenial
+language: node_js
+node_js:
+- '12'
+- '10'
+
+cache: yarn
+install: yarn
+
+script:
+- yarn test
+# - yarn dist
+
+
+# TODO
+#
+# deploy:
+#   provider: releases
+#   api_key:
+#     secure: 
+#   file_blob: true
+#   file:
+#   - 'dist/*.AppImage'
+#   - 'dist/*.deb'
+#   - 'dist/*.tar.xz'
+#   on:
+#     repo: vjba/WhatsTron
