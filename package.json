@@ -20,8 +20,8 @@
         "url": "https://vjba.me"
     },
     "scripts": {
-        "test": "lint",
-        "lint": "npx standard",
+        "test": "yarn lint",
+        "lint": "yarn standard",
         "start": "electron .",
         "pack": "electron-builder --dir",
         "dist": "electron-builder --linux",
