@@ -61,6 +61,7 @@ To fix this error enter the following commands (***note***: _root privililedges 
 sudo chown root node_modules/electron/dist/chrome-sandbox
 # changes permissions of chrome-sandbox to 4755 / -rwsr-xr-x
 sudo chmod 4755 node_modules/electron/dist/chrome-sandbox
+```
 
 ## Usage
 
