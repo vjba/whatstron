@@ -1,12 +1,13 @@
 # WhatsTron
 
-![Maintenance](https://img.shields.io/maintenance/yes/2019.svg)
-![Code style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)
-![GitHub release](https://img.shields.io/github/release/vjba/whatstron.svg)
-![GitHub Release Date](https://img.shields.io/github/release-date/vjba/whatstron.svg)
-![GitHub issues](https://img.shields.io/github/issues/vjba/whatstron.svg)
-![GitHub All Releases](https://img.shields.io/github/downloads/vjba/whatstron/total.svg)
-![GitHub](https://img.shields.io/github/license/vjba/whatstron.svg)
+[![Maintenance](https://img.shields.io/maintenance/yes/2019.svg)](javascript:)
+[![Code style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](https://standardjs.com/)
+[![GitHub release](https://img.shields.io/github/release/vjba/whatstron.svg)](https://github.com/vjba/whatstron/releases/latest)
+[![GitHub Release Date](https://img.shields.io/github/release-date/vjba/whatstron.svg)](javascript:)
+[![GitHub issues](https://img.shields.io/github/issues/vjba/whatstron.svg)](https://github.com/vjba/whatstron/issues)
+[![Master branch status](https://img.shields.io/travis/com/vjba/whatstron/master.svg?label=master)](https://github.com/vjba/whatstron/tree/master)
+[![Develop branch status](https://img.shields.io/travis/com/vjba/whatstron/develop.svg?label=)](https://github.com/vjba/whatstron/tree/develop)
+[![GitHub](https://img.shields.io/github/license/vjba/whatstron.svg)](https://github.com/vjba/whatstron/blob/develop/LICENSE.md)
 
 WhatsTron is a desktop WhatsApp client for Linux, built with Electron
 
