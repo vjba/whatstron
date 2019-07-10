@@ -13,10 +13,10 @@ WhatsTron is a desktop WhatsApp client for Linux, built with Electron
 
 ## Features
 
-* [**Persistent login**]() as is the standard browser behaviour
-* [**Tray icon**]() for quick access to window restore, visiting this repo, and app exit
-* [**Super speedy load time**]() compared to firing up a browser, thanks to [Electron](https://electronjs.org)
-* [**Close to tray**]() so you don't accidentally close the app. Just click on the tray icon and then 'Restore Window'
+* [**Persistent login**](#) as is the standard browser behaviour
+* [**Tray icon**](#) for quick access to window restore, visiting this repo, and app exit
+* [**Super speedy load time**](#) compared to firing up a browser, thanks to [Electron](https://electronjs.org)
+* [**Close to tray**](#) so you don't accidentally close the app. Just click on the tray icon and then 'Restore Window'
 
 ## Installation
 
