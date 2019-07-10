@@ -13,13 +13,13 @@ let appIcon = null
 let URL = 'https://web.whatsapp.com'
 
 // Determine appropriate icon for platform
-if (platform == 'darwin' || platform == 'linux') {
+if (platform === 'darwin' || platform === 'linux') {
   trayIcon = path.join(__dirname, 'assets', 'icon.png')
-} else if (platform == 'win32') {
+} else if (platform === 'win32') {
   trayIcon = path.join(__dirname, 'assets', 'icon.ico')
 }
 
-function createWindow() {
+function createWindow () {
   // Create the browser window.
   mainWindow = new BrowserWindow({
     show: false,
