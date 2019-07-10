@@ -20,10 +20,12 @@
         "url": "https://vjba.me"
     },
     "scripts": {
-        "postinstall": "electron-builder install-app-deps",
+        "test": "lint",
+        "lint": "npx standard",
         "start": "electron .",
         "pack": "electron-builder --dir",
-        "dist": "electron-builder --linux"
+        "dist": "electron-builder --linux",
+        "postinstall": "electron-builder install-app-deps"
     },
     "dependencies": {
         "electron-context-menu": "^0.12.1",
