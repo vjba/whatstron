@@ -6,7 +6,7 @@
 [![GitHub Release Date](https://img.shields.io/github/release-date/vjba/whatstron.svg)](javascript:)
 [![GitHub issues](https://img.shields.io/github/issues/vjba/whatstron.svg)](https://github.com/vjba/whatstron/issues)
 [![Master branch status](https://img.shields.io/travis/com/vjba/whatstron/master.svg?label=master)](https://github.com/vjba/whatstron/tree/master)
-[![Develop branch status](https://img.shields.io/travis/com/vjba/whatstron/develop.svg?label=)](https://github.com/vjba/whatstron/tree/develop)
+[![Develop branch status](https://img.shields.io/travis/com/vjba/whatstron/develop.svg?label=develop)](https://github.com/vjba/whatstron/tree/develop)
 [![GitHub](https://img.shields.io/github/license/vjba/whatstron.svg)](https://github.com/vjba/whatstron/blob/develop/LICENSE.md)
 
 WhatsTron is a desktop WhatsApp client for Linux, built with Electron
