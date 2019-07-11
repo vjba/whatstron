@@ -10,7 +10,7 @@ const path = require('path')
 let mainWindow = null
 let trayIcon = null
 let appIcon = null
-let URL = 'https://web.whatsapp.com'
+const URL = 'https://web.whatsapp.com'
 const instanceLock = app.requestSingleInstanceLock()
 
 // Set tray icon image
