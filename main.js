@@ -87,7 +87,7 @@ function createWindow () {
   // Load url
   mainWindow.loadURL(URL)
 
-  // Create trayIcon context menu
+  // Add above context menu to tray
   appIcon.setContextMenu(contextMenu)
 
   mainWindow.on('closed', function () {
@@ -116,6 +116,5 @@ if (!instanceLock) {
 }
 
 // This method will be called when Electron has finished
-// initialization (all of the above) and is ready to create browser windows.
-// Some APIs can only be used after this event occurs.
+// initialization (all of the above) and is ready to create browser window
 app.on('ready', createWindow)
