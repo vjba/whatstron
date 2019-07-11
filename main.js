@@ -82,7 +82,7 @@ function createWindow () {
     {
       label: 'Exit',
       click: () => {
-        app.quit()
+        process.exit(0)
       }
     }
   ])
