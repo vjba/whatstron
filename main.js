@@ -90,10 +90,6 @@ function createWindow () {
   // Add above context menu to tray
   appIcon.setContextMenu(contextMenu)
 
-  mainWindow.on('closed', function () {
-    mainWindow = null
-  })
-
   // Don't show until we are ready and loaded
   mainWindow.once('ready-to-show', () => {
     mainWindow.show()
