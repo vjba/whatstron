@@ -1,7 +1,7 @@
 {
     "name": "whatstron",
     "productName": "WhatsTron",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Desktop WhatsApp client for Linux, built with Electron",
     "main": "main.js",
     "license": "MIT",

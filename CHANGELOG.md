@@ -8,20 +8,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ![GitHub release](https://img.shields.io/github/release/vjba/whatstron.svg)
 ![GitHub Release Date](https://img.shields.io/github/release-date/vjba/whatstron.svg)
 
-[Unreleased]
-
-## [1.1.0] - 2019-07-10
+## [1.0.1] - 2019-07-10
 
 ### Added
 
-- Spectron test suite
 - StandardJS linting
 - Travis-CI integration
-- Releases section README.md
+- Releases section to README.md
 
 ### Fixed
 
-- 
+- Second instance detection ([issue #1](https://github.com/vjba/whatstron/issues/1))
 
 ## [1.0.0] - 2019-07-10
 
