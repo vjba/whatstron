@@ -7,18 +7,14 @@ const path = require('path')
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
-let mainWindow
+let mainWindow = null
 let trayIcon = null
 let appIcon = null
 let URL = 'https://web.whatsapp.com'
+const instanceLock = app.requestSingleInstanceLock()
 
-// Determine appropriate icon for platform
-// FIXME Why check for  other os's?
-if (platform === 'darwin' || platform === 'linux') {
-  trayIcon = path.join(__dirname, 'assets', 'icon.png')
-} else if (platform === 'win32') {
-  trayIcon = path.join(__dirname, 'assets', 'icon.ico')
-}
+// Set tray icon image
+trayIcon = path.join(__dirname, 'assets', 'icon.png')
 
 function createWindow () {
   // Create the browser window.
@@ -105,15 +101,19 @@ function createWindow () {
 }
 
 // Prevent multiple instances of the app
-// FIXME GH issue #1
-app.on('second-instance', () => {
-  if (mainWindow) {
-    if (mainWindow.isMinimized()) {
-      mainWindow.restore()
+if (!instanceLock) {
+  app.quit()
+} else {
+  app.on('second-instance', (event) => {
+    if (mainWindow) {
+      if (mainWindow.isMinimized()) {
+        mainWindow.restore()
+      }
+      mainWindow.show()
+      mainWindow.focus()
     }
-    mainWindow.show()
-  }
-})
+  })
+}
 
 // This method will be called when Electron has finished
 // initialization (all of the above) and is ready to create browser windows.
