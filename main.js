@@ -2,24 +2,20 @@
 // Modules to control application life and create native browser window
 const { app, BrowserWindow, Menu, Tray } = require('electron')
 const { openUrlMenuItem } = require('electron-util')
-const { platform } = require('os')
 const path = require('path')
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
-let mainWindow
+let mainWindow = null
 let trayIcon = null
 let appIcon = null
-let URL = 'https://web.whatsapp.com'
+const URL = 'https://web.whatsapp.com'
+const instanceLock = app.requestSingleInstanceLock()
 
-// Determine appropriate icon for platform
-if (platform == 'darwin' || platform == 'linux') {
-  trayIcon = path.join(__dirname, 'assets', 'icon.png')
-} else if (platform == 'win32') {
-  trayIcon = path.join(__dirname, 'assets', 'icon.ico')
-}
+// Set tray icon image
+trayIcon = path.join(__dirname, 'assets', 'icon.png')
 
-function createWindow() {
+function createWindow () {
   // Create the browser window.
   mainWindow = new BrowserWindow({
     show: false,
@@ -43,6 +39,7 @@ function createWindow() {
   })
 
   // Change User-Agent to circumvent 'WhatsApp works with Google Chrome 49+' alert on startup
+  // TODO Introduce array and randomizer for multiple agents
   mainWindow.webContents.setUserAgent('Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.90 Safari/537.36')
 
   // Click close hides window
@@ -71,8 +68,12 @@ function createWindow() {
       }
     },
     openUrlMenuItem({
-      label: 'Visit GitHub Repository',
+      label: 'Visit Website',
       url: 'https://github.com/vjba/whatstron'
+    }),
+    openUrlMenuItem({
+      label: 'View Issues',
+      url: 'https://github.com/vjba/whatstron/issues'
     }),
     {
       label: '',
@@ -89,12 +90,8 @@ function createWindow() {
   // Load url
   mainWindow.loadURL(URL)
 
-  // Create trayIcon context menu
+  // Add above context menu to tray
   appIcon.setContextMenu(contextMenu)
-
-  mainWindow.on('closed', function () {
-    mainWindow = null
-  })
 
   // Don't show until we are ready and loaded
   mainWindow.once('ready-to-show', () => {
@@ -103,16 +100,20 @@ function createWindow() {
 }
 
 // Prevent multiple instances of the app
-app.on('second-instance', () => {
-  if (mainWindow) {
-    if (mainWindow.isMinimized()) {
-      mainWindow.restore()
+if (!instanceLock) {
+  app.quit()
+} else {
+  app.on('second-instance', (event) => {
+    if (mainWindow) {
+      if (mainWindow.isMinimized()) {
+        mainWindow.restore()
+      }
+      mainWindow.show()
+      mainWindow.focus()
     }
-    mainWindow.show()
-  }
-})
+  })
+}
 
 // This method will be called when Electron has finished
-// initialization (all of the above) and is ready to create browser windows.
-// Some APIs can only be used after this event occurs.
+// initialization (all of the above) and is ready to create browser window
 app.on('ready', createWindow)
