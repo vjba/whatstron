@@ -2,7 +2,6 @@
 // Modules to control application life and create native browser window
 const { app, BrowserWindow, Menu, Tray } = require('electron')
 const { openUrlMenuItem } = require('electron-util')
-const { platform } = require('os')
 const path = require('path')
 
 // Keep a global reference of the window object, if you don't, the window will
