@@ -69,8 +69,12 @@ function createWindow () {
       }
     },
     openUrlMenuItem({
-      label: 'Visit GitHub Repository',
+      label: 'Visit Website',
       url: 'https://github.com/vjba/whatstron'
+    }),
+    openUrlMenuItem({
+      label: 'View Issues',
+      url: 'https://github.com/vjba/whatstron/issues'
     }),
     {
       label: '',
