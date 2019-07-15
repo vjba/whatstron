@@ -69,6 +69,7 @@ Using your preferred method of package manager:
 
 ```bash
 yarn start  # run the electron app
+yarn lint   # lints the code to conform with StandardJS
 yarn pack   # generate an unpacked build to /dist/linux-unpacked
 yarn dist   # builds packages for AppImage, deb, and tar.xz to /dist
 ```
