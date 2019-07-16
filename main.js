@@ -30,7 +30,8 @@ function createWindow () {
     webPreferences: {
       contextIsolation: true,
       nodeIntegration: false,
-      nodeIntegrationInWorker: false
+      nodeIntegrationInWorker: false,
+      enableRemoteModule: false
     }
   })
 
@@ -119,6 +120,7 @@ if (!instanceLock) {
   })
 }
 
+// Disable navigation outside of appURL
 app.on('web-contents-created', (event, contents) => {
   contents.on('will-navigate', (event, navigationUrl) => {
     const parsedUrl = new URL(navigationUrl)
