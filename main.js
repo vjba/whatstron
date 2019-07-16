@@ -1,6 +1,6 @@
 'use strict'
 // Modules to control application life and create native browser window
-const { app, BrowserWindow, Menu, Tray } = require('electron')
+const { app, BrowserWindow, Menu, Tray, shell } = require('electron')
 const { openUrlMenuItem } = require('electron-util')
 const path = require('path')
 const URL = require('url').URL
@@ -73,14 +73,34 @@ function createWindow () {
       label: 'Visit Website',
       url: 'https://github.com/vjba/whatstron'
     }),
-    openUrlMenuItem({
-      label: 'View Issues',
-      url: 'https://github.com/vjba/whatstron/issues'
-    }),
-    openUrlMenuItem({
-      label: 'Report New Issue',
-      url: 'https://github.com/vjba/whatstron/issues/new'
-    }),
+    {
+      label: 'Help',
+      submenu: [
+        openUrlMenuItem({
+          label: 'View Issues',
+          url: 'https://github.com/vjba/whatstron/issues'
+        }),
+        openUrlMenuItem({
+          label: 'Report New Issue',
+          url: 'https://github.com/vjba/whatstron/issues/new'
+        }),
+        {
+          label: 'Delete App Data',
+          click () {
+            shell.moveItemToTrash(app.getPath('userData'))
+            app.relaunch()
+            process.exit(0)
+          }
+        },
+        {
+          label: 'Restart WhatsTron',
+          click () {
+            app.relaunch()
+            process.exit(0)
+          }
+        }
+      ]
+    },
     {
       label: '',
       type: 'separator'
