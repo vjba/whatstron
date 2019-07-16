@@ -3,13 +3,14 @@
 const { app, BrowserWindow, Menu, Tray } = require('electron')
 const { openUrlMenuItem } = require('electron-util')
 const path = require('path')
+const URL = require('url').URL
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow = null
 let trayIcon = null
 let appIcon = null
-const URL = 'https://web.whatsapp.com'
+const appURL = 'https://web.whatsapp.com'
 const instanceLock = app.requestSingleInstanceLock()
 
 // Set tray icon image
@@ -92,7 +93,7 @@ function createWindow () {
   ])
 
   // Load url
-  mainWindow.loadURL(URL)
+  mainWindow.loadURL(appURL)
 
   // Add above context menu to tray
   appIcon.setContextMenu(contextMenu)
@@ -117,6 +118,16 @@ if (!instanceLock) {
     }
   })
 }
+
+app.on('web-contents-created', (event, contents) => {
+  contents.on('will-navigate', (event, navigationUrl) => {
+    const parsedUrl = new URL(navigationUrl)
+
+    if (parsedUrl.origin !== this.appURL) {
+      event.preventDefault()
+    }
+  })
+})
 
 // This method will be called when Electron has finished
 // initialization (all of the above) and is ready to create browser window
