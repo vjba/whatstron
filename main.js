@@ -76,7 +76,7 @@ function createWindow () {
       url: 'https://github.com/vjba/whatstron/issues'
     }),
     openUrlMenuItem({
-      label: 'Report And Issue',
+      label: 'Report New Issue',
       url: 'https://github.com/vjba/whatstron/issues/new'
     }),
     {
