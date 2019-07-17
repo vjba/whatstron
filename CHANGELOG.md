@@ -31,6 +31,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - GitHub Pages
 - Tested platforms stated in README.md
 - Lint command `yarn` / `npm` `lint`
+- Basic test suite with Mocha and Istanbul
+- Codecov integration
 
 ### Security
 

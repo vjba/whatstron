@@ -7,6 +7,41 @@
     "main": "main.js",
     "license": "MIT",
     "repository": "git+ssh://github.com/vjba/whatstron.git",
+    "author": {
+        "name": "vjba",
+        "email": "hello@vjba.me",
+        "url": "https://vjba.me"
+    },
+    "bugs": {
+        "url": "https://github.com/vjba/whatstron/issues",
+        "email": "hello@vjba.me"
+    },
+    "scripts": {
+        "test": "nyc mocha",
+        "report-coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov -t 5ff7c9dc-d846-4a57-af9a-78f8214f8138",
+        "lint": "npx standard main.js",
+        "start": "electron .",
+        "pack": "electron-builder --dir",
+        "dist": "electron-builder --linux",
+        "postinstall": "electron-builder install-app-deps"
+    },
+    "dependencies": {
+        "electron-context-menu": "^0.12.1",
+        "electron-debug": "^3.0.0",
+        "electron-store": "^3.3.0",
+        "electron-unhandled": "^2.2.0",
+        "electron-updater": "^4.0.14",
+        "electron-util": "^0.12.0"
+    },
+    "devDependencies": {
+        "codecov": "^3.5.0",
+        "electron": "^4.2.6",
+        "electron-builder": "^20.43.0",
+        "mocha": "^6.1.4",
+        "nyc": "^14.1.1",
+        "spectron": "^6.0.0",
+        "standard": "^12.0.1"
+    },
     "keywords": [
         "Electron",
         "WhatsApp",
@@ -26,37 +61,6 @@
         "flatpack",
         "flathub"
     ],
-    "author": {
-        "name": "vjba",
-        "email": "hello@vjba.me",
-        "url": "https://vjba.me"
-    },
-    "bugs": {
-        "url": "https://github.com/vjba/whatstron/issues",
-        "email": "hello@vjba.me"
-    },
-    "scripts": {
-        "test": "yarn lint",
-        "lint": "npx standard",
-        "start": "electron .",
-        "pack": "electron-builder --dir",
-        "dist": "electron-builder --linux",
-        "postinstall": "electron-builder install-app-deps"
-    },
-    "dependencies": {
-        "electron-context-menu": "^0.12.1",
-        "electron-debug": "^3.0.0",
-        "electron-store": "^3.3.0",
-        "electron-unhandled": "^2.2.0",
-        "electron-updater": "^4.0.14",
-        "electron-util": "^0.12.0"
-    },
-    "devDependencies": {
-        "electron": "^4.2.6",
-        "electron-builder": "^20.43.0",
-        "spectron": "^6.0.0",
-        "standard": "^12.0.1"
-    },
     "os": [
         "linux"
     ],
