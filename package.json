@@ -23,6 +23,7 @@
         "start": "electron .",
         "pack": "electron-builder --dir",
         "dist": "electron-builder --linux",
+        "release": "build",
         "postinstall": "electron-builder install-app-deps"
     },
     "dependencies": {
@@ -71,6 +72,13 @@
         "node": ">=10.0.0"
     },
     "build": {
+        "publish": [
+            {
+                "provider": "github",
+                "owner": "vjba",
+                "repo": "whatstron"
+            }
+        ],
         "appId": "com.vjba.WhatsTron",
         "linux": {
             "icon": "assets/",

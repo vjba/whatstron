@@ -1,30 +1,33 @@
 matrix:
   include:
-    - os: linux
-      dist: bionic
-    - os: linux
-      dist: xenial
-    - os: linux
-      dist: trusty
+  - os: linux
+    dist: bionic
+  - os: linux
+    dist: xenial
 
 language: node_js
 
 node_js:
-  - '12'
-  - '10'
+- '12'
+- '10'
 
 addons:
   apt:
     packages:
-      - xvfb
+    - xvfb
 
 cache: yarn
 
 install:
-  - yarn
-  - export DISPLAY=':99.0'
-  - Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
+- yarn
+- export DISPLAY=':99.0'
+- Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
 
 script:
-  - yarn test
-  - yarn report-coverage
+- yarn test
+- yarn report-coverage
+- yarn release
+
+env:
+  matrix:
+    secure: P3Y2eUQ65/ZKwb3UzjM5J1rn5gBI/D0NWXXA79ZbAdes9dlT0cSv4t3L2UtwaA5wsHlA0NlckXB23dJC5HC8vmDVrF28+wVnycRotUwZ0dsBs803Hqmat9Tru8AR3iPwtf0+mRVzk77h42X9koimfSs00HFV+l2zDMtbtF3Rb+gr7D6uBw2Z05as8mL/VI06w0pg2TWIOY+6KpMR5en4F6eskuGlmhGjZGihWwqi4ou/qE4uTrTD99s0IPKVTDED/70JhLddZenm9VKtzbVeMlbzyHS4VGy059mEajqMpQsWRKse5INN+YHGyF797cgIzZlfA5OxG/pvTTclMtMsqWb06PFY8yYwTiGxPdXF9GLtP7RA5h4gElNn8zkU+3kwy5l/VQgvUTbDBp8Bnk1twZn7+4JKc4ccf19FgQ1p5mtzxs3L9uHH8Y/WE7jUTs9btPT0GZPXtO1R8KR6k4QJCcvNyCfNxu0Q9hEe6QHtrW0AyLDZDNQIW5nVdQX/w0DviX6NxKiueTYlabasn9/eISuJC3FHqCPZMpi5kSKhtpmbHh5r5L1A1wbgVUcRqGtILhGeQ3VKUPGQMnOrBYPcP+MYPc95y5Mqg34iySUAVXosJfHUuNVKiE7MIPiDDFRTY6IfHqhq8o9i5HL6nWgmAeNFKEzM+BCZGGS2lcdV8tw=
