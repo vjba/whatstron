@@ -26,9 +26,6 @@ parts:
       - libasound2
       - pulseaudio
 
-    after:
-      - desktop-gtk2
-
 apps:
   whatstron:
     command: env TMPDIR=$XDG_RUNTIME_DIR desktop-launch $SNAP/whatstron
