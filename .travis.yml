@@ -1,20 +1,16 @@
-matrix:
-  include:
-  - os: linux
-    dist: bionic
-  - os: linux
-    dist: xenial
+os: linux
+
+dist: bionic
 
 language: node_js
 
-node_js:
-- '12'
-- '10'
+node_js: '12'
 
 addons:
   apt:
     packages:
     - xvfb
+    - rpm
 
 cache: yarn
 
