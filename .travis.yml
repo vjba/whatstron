@@ -10,7 +10,6 @@ addons:
   apt:
     packages:
     - xvfb
-    - rpm
 
 cache: yarn
 

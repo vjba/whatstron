@@ -55,7 +55,6 @@
         "Instant Messaging",
         "AppImage",
         "deb",
-        "rpm",
         "freebsd",
         "snap",
         "sapcraft",
@@ -86,7 +85,6 @@
                 "AppImage",
                 "deb",
                 "tar.xz",
-                "rpm",
                 "snap",
                 "freebsd"
             ],
@@ -102,9 +100,6 @@
             ]
         },
         "appImage": {
-            "artifactName": "${productName}-${version}-${arch}.${ext}"
-        },
-        "rpm": {
             "artifactName": "${productName}-${version}-${arch}.${ext}"
         },
         "freebsd": {
