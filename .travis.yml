@@ -1,4 +1,11 @@
-dist: xenial
+matrix:
+  include:
+    - os: linux
+      dist: bionic
+    - os: linux
+      dist: xenial
+    - os: linux
+      dist: trusty
 
 language: node_js
 
