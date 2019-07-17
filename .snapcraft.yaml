@@ -1,5 +1,5 @@
 name: whatstron
-base: ''
+base: core18
 version: '1.0.1'
 grade: stable
 summary: Desktop WhatsApp client for Linux, built with Electron
