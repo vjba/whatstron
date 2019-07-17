@@ -76,12 +76,12 @@ yarn dist   # builds packages for AppImage, deb, and tar.xz to /dist
 
 ## Contributing
 
-Please read [CONTRIBUTING.md](./CONTRIBUTING.md)
+Please read [CONTRIBUTING.md](CONTRIBUTING.md)
 
 ## Changelog
 
-Please read [CHANGELOG.md](./CHANGELOG.md)
+Please read [CHANGELOG.md](CHANGELOG.md)
 
 ## License
 
-[MIT](./LICENSE.md)
+[MIT](LICENSE.md)
