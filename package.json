@@ -17,7 +17,7 @@
         "email": "hello@vjba.me"
     },
     "scripts": {
-        "test": "nyc mocha",
+        "test": "yarn lint && nyc mocha",
         "report-coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov -t 5ff7c9dc-d846-4a57-af9a-78f8214f8138",
         "lint": "npx standard main.js",
         "start": "electron .",
