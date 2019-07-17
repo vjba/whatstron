@@ -28,6 +28,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Delete app data
   - Restart app
   - Report new issue to GitHub
+- GitHub Pages
 - Tested platforms stated in README.md
 - Lint command `yarn` / `npm` `lint`
 
