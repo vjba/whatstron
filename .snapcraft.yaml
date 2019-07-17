@@ -29,13 +29,6 @@ parts:
     after:
       - desktop-gtk2
 
-    build: node_modules/.bin/electron-builder
-    install: |
-      mkdir $SNAPCRAFT_PART_INSTALL/app
-      mv dist/linux-unpacked/* $SNAPCRAFT_PART_INSTALL/app
-    prime:
-      - -node_modules
-
 apps:
   whatstron:
     command: env TMPDIR=$XDG_RUNTIME_DIR desktop-launch $SNAP/app/whatstron
