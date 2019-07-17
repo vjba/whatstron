@@ -11,12 +11,19 @@
         "WhatsApp",
         "Desktop",
         "Linux",
+        "MIT",
+        "FOSS",
+        "Open Source",
+        "Messenger",
+        "Instant Messaging",
         "AppImage",
         "deb",
-        "FOSS",
-        "open source",
-        "messenger",
-        "instant messenger"
+        "rpm",
+        "freebsd",
+        "snap",
+        "sapcraft",
+        "flatpack",
+        "flathub"
     ],
     "author": {
         "name": "vjba",
