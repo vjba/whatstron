@@ -13,8 +13,7 @@ architectures:
 parts:
   whatstron:
     plugin: nodejs
-    source: /
-
+    source: .
     stage-packages:
       - libnotify4
       - libappindicator1
@@ -28,7 +27,7 @@ parts:
 
 apps:
   whatstron:
-    command: env TMPDIR=$XDG_RUNTIME_DIR desktop-launch $SNAP/whatstron
+    command: env TMPDIR=$XDG_RUNTIME_DIR PATH=/usr/local/bin:${PATH} ${SNAP}/bin/desktop-launch $SNAP/whatstron/desktop
     plugs:
       - home
       - x11
