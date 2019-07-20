@@ -98,6 +98,10 @@ function createWindow () {
           url: 'https://github.com/vjba/whatstron/issues/new'
         }),
         {
+          label: '',
+          type: 'separator'
+        },
+        {
           label: 'Delete App Data',
           icon: deleteDataIcon,
           click () {
