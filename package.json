@@ -86,7 +86,8 @@
                 "deb",
                 "tar.xz",
                 "snap",
-                "freebsd"
+                "freebsd",
+                "rpm"
             ],
             "category": "Network;Chat",
             "desktop": {
