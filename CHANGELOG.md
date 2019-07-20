@@ -15,11 +15,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - Electron version ^4.0.0 to ^5.0.0
+- FlatHub publishing
 
 ## [1.1.0] - XXXX-XX-XX
 
 ### Added
 
+- Automated build publishing
 - Snapcraft build integration
 - Publish script for Snapcraft
 - Builds for `.rpm`, `.freebsd`, and `.snap`
