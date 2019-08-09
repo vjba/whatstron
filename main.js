@@ -13,6 +13,7 @@ const appURL = 'https://web.whatsapp.com'
 const instanceLock = app.requestSingleInstanceLock()
 
 // Set icons
+<<<<<<< HEAD
 const trayIcon = path.join(__dirname, 'assets', 'icon.png')
 const exitIcon = path.join(__dirname, 'assets', 'power_settings_new.png')
 const helpIcon = path.join(__dirname, 'assets', 'help.png')
@@ -22,6 +23,18 @@ const deleteDataIcon = path.join(__dirname, 'assets', 'delete.png')
 const restoreIcon = path.join(__dirname, 'assets', 'desktop_windows.png')
 const websiteIcon = path.join(__dirname, 'assets', 'link.png')
 const restartIcon = path.join(__dirname, 'assets', 'refresh.png')
+=======
+let trayIcon, exitIcon, helpIcon, newIssueIcon, issuesIcon, deleteDataIcon, restoreIcon, websiteIcon, restartIcon
+trayIcon = path.join(__dirname, 'assets', 'icon.png')
+exitIcon = path.join(__dirname, 'assets', 'power_settings_new.png')
+helpIcon = path.join(__dirname, 'assets', 'help.png')
+newIssueIcon = path.join(__dirname, 'assets', 'add_alert.png')
+issuesIcon = path.join(__dirname, 'assets', 'bug_report.png')
+deleteDataIcon = path.join(__dirname, 'assets', 'delete.png')
+restoreIcon = path.join(__dirname, 'assets', 'desktop_windows.png')
+websiteIcon = path.join(__dirname, 'assets', 'link.png')
+restartIcon = path.join(__dirname, 'assets', 'refresh.png')
+>>>>>>> master
 
 function createWindow () {
   // Create the browser window.
@@ -116,6 +129,7 @@ function createWindow () {
             app.relaunch()
             process.exit(0)
           }
+<<<<<<< HEAD
         },
         {
           label: '',
@@ -124,6 +138,8 @@ function createWindow () {
         {
           label: 'WhatsTron v1.1.2',
           enabled: false
+=======
+>>>>>>> master
         }
       ]
     },

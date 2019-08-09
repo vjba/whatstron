@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+<<<<<<< HEAD
 - Electron version ^4.0.0 to ^5.0.0 or ^6.0.0
 - FlatHub publishing
 
@@ -33,6 +34,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Icon issue between dark and light OS themes ([issue #5](https://github.com/vjba/whatstron/issues/5))
 
 ## [1.1.0] - 2019-07-20
+=======
+- Electron version ^4.0.0 to ^5.0.0
+- FlatHub publishing
+
+## [1.1.0] - XXXX-XX-XX
+>>>>>>> master
 
 ### Added
 
