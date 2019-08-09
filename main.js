@@ -116,6 +116,14 @@ function createWindow () {
             app.relaunch()
             process.exit(0)
           }
+        },
+        {
+          label: '',
+          type: 'separator'
+        },
+        {
+          label: 'WhatsTron v1.1.2',
+          enabled: false
         }
       ]
     },
