@@ -14,10 +14,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- Electron version ^4.0.0 to ^5.0.0
+- Electron version ^4.0.0 to ^5.0.0 or ^6.0.0
 - FlatHub publishing
 
-## [1.1.0] - XXXX-XX-XX
+### Fixed
+
+- Snapcraft publishing
+
+## [1.1.2] - 2019-08-09
+
+### Added
+
+- ESLint dependency and config (still Standard)
+- App version to tray menu
+
+### Fixed
+
+- Icon issue between dark and light OS themes ([issue #5](https://github.com/vjba/whatstron/issues/5))
+
+## [1.1.0] - 2019-07-20
 
 ### Added
 

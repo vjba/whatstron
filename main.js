@@ -13,16 +13,15 @@ const appURL = 'https://web.whatsapp.com'
 const instanceLock = app.requestSingleInstanceLock()
 
 // Set icons
-let trayIcon, exitIcon, helpIcon, newIssueIcon, issuesIcon, deleteDataIcon, restoreIcon, websiteIcon, restartIcon
-trayIcon = path.join(__dirname, 'assets', 'icon.png')
-exitIcon = path.join(__dirname, 'assets', 'power_settings_new.png')
-helpIcon = path.join(__dirname, 'assets', 'help.png')
-newIssueIcon = path.join(__dirname, 'assets', 'add_alert.png')
-issuesIcon = path.join(__dirname, 'assets', 'bug_report.png')
-deleteDataIcon = path.join(__dirname, 'assets', 'delete.png')
-restoreIcon = path.join(__dirname, 'assets', 'desktop_windows.png')
-websiteIcon = path.join(__dirname, 'assets', 'link.png')
-restartIcon = path.join(__dirname, 'assets', 'refresh.png')
+const trayIcon = path.join(__dirname, 'assets', 'icon.png')
+const exitIcon = path.join(__dirname, 'assets', 'power_settings_new.png')
+const helpIcon = path.join(__dirname, 'assets', 'help.png')
+const newIssueIcon = path.join(__dirname, 'assets', 'add_alert.png')
+const issuesIcon = path.join(__dirname, 'assets', 'bug_report.png')
+const deleteDataIcon = path.join(__dirname, 'assets', 'delete.png')
+const restoreIcon = path.join(__dirname, 'assets', 'desktop_windows.png')
+const websiteIcon = path.join(__dirname, 'assets', 'link.png')
+const restartIcon = path.join(__dirname, 'assets', 'refresh.png')
 
 function createWindow () {
   // Create the browser window.
@@ -33,7 +32,6 @@ function createWindow () {
     width: 800,
     height: 600,
     center: true,
-    darkTheme: true,
     autoHideMenuBar: true,
     webPreferences: {
       contextIsolation: true,
@@ -50,7 +48,7 @@ function createWindow () {
 
   // Change User-Agent to circumvent 'WhatsApp works with Google Chrome 49+' alert on startup
   // TODO Introduce array and randomizer for multiple agents
-  mainWindow.webContents.setUserAgent('Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.90 Safari/537.36')
+  mainWindow.webContents.setUserAgent('Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:70.0) Gecko/20100101 Firefox/70.0.0')
 
   // Click close hides window
   mainWindow.on('close', (event) => {
@@ -117,6 +115,14 @@ function createWindow () {
             app.relaunch()
             process.exit(0)
           }
+        },
+        {
+          label: '',
+          type: 'separator'
+        },
+        {
+          label: 'WhatsTron v1.1.2',
+          enabled: false
         }
       ]
     },
