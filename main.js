@@ -86,14 +86,14 @@ function createWindow () {
       icon: helpIcon,
       submenu: [
         openUrlMenuItem({
+          label: 'Report Issue',
+          icon: newIssueIcon,
+          url: 'https://github.com/vjba/whatstron/issues/new/choose'
+        }),
+        openUrlMenuItem({
           label: 'View Issues',
           icon: issuesIcon,
           url: 'https://github.com/vjba/whatstron/issues'
-        }),
-        openUrlMenuItem({
-          label: 'Report Issue',
-          icon: newIssueIcon,
-          url: 'https://github.com/vjba/whatstron/issues/new'
         }),
         {
           label: '',
@@ -121,7 +121,7 @@ function createWindow () {
           type: 'separator'
         },
         {
-          label: 'WhatsTron v1.1.2',
+          label: 'WhatsTron v1.1.3',
           enabled: false
         }
       ]
