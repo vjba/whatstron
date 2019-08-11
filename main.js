@@ -46,6 +46,12 @@ function createWindow () {
     event.preventDefault()
   })
 
+  // Open default browser on external links
+  mainWindow.webContents.on('new-window', (event, url) => {
+    event.preventDefault()
+    require('electron').shell.openExternal(url)
+  })
+
   // Change User-Agent to circumvent 'WhatsApp works with Google Chrome 49+' alert on startup
   // TODO Introduce array and randomizer for multiple agents
   mainWindow.webContents.setUserAgent('Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:70.0) Gecko/20100101 Firefox/70.0.0')
@@ -121,7 +127,7 @@ function createWindow () {
           type: 'separator'
         },
         {
-          label: 'WhatsTron v1.1.3',
+          label: 'WhatsTron v1.2.0',
           enabled: false
         }
       ]
