@@ -18,7 +18,6 @@
     },
     "scripts": {
         "test": "yarn lint && nyc mocha",
-        "report-coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov -t 5ff7c9dc-d846-4a57-af9a-78f8214f8138",
         "lint": "npx eslint main.js --fix",
         "start": "electron .",
         "pack": "electron-builder --dir",
@@ -35,7 +34,6 @@
         "electron-util": "^0.12.0"
     },
     "devDependencies": {
-        "codecov": "^3.5.0",
         "electron": "^4.2.6",
         "electron-builder": "^20.43.0",
         "eslint": "^6.1.0",

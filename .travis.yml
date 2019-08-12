@@ -26,7 +26,6 @@ install:
 
 script:
 - yarn test
-- yarn report-coverage
 - yarn release
 
 env:

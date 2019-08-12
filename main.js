@@ -193,3 +193,8 @@ app.on('web-contents-created', (event, contents) => {
 // This method will be called when Electron has finished
 // initialization (all of the above) and is ready to create browser window
 app.on('ready', createWindow)
+
+// TODO
+// https://electronjs.org/docs/api/net
+// https://www.christianengvall.se/electron-show-messagebox/
+// https://api.github.com/repos/vjba/whatstron/releases
