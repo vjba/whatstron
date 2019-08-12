@@ -8,6 +8,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ![GitHub release](https://img.shields.io/github/release/vjba/whatstron.svg)
 ![GitHub Release Date](https://img.shields.io/github/release-date/vjba/whatstron.svg)
 
+## [1.3.0] - 2019-08-XX
+
+### Added
+
+- Automated version detection
+
+### Fixed
+
+- Cleared up comments
+
 ## [1.2.0] - 2019-08-12
 
 ### Added
