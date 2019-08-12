@@ -5,8 +5,7 @@ const { openUrlMenuItem } = require('electron-util')
 const path = require('path')
 const URL = require('url').URL
 
-// Keep a global reference of the window object, if you don't, the window will
-// be closed automatically when the JavaScript object is garbage collected.
+// Some global vars
 let mainWindow = null
 let appIcon = null
 const appURL = 'https://web.whatsapp.com'
@@ -23,8 +22,16 @@ const restoreIcon = path.join(__dirname, 'assets', 'desktop_windows.png')
 const websiteIcon = path.join(__dirname, 'assets', 'link.png')
 const restartIcon = path.join(__dirname, 'assets', 'refresh.png')
 
+// fetch version from package.json
+function getVersion () {
+  const packageJson = require('./package.json')
+  const json = JSON.stringify(packageJson.version)
+  const version = json.replace(/["]+/g, '')
+  return version
+}
+
+// Create the browser window.
 function createWindow () {
-  // Create the browser window.
   mainWindow = new BrowserWindow({
     show: false,
     title: 'WhatsTron',
@@ -127,7 +134,7 @@ function createWindow () {
           type: 'separator'
         },
         {
-          label: 'WhatsTron v1.2.0',
+          label: 'WhatsTron ' + getVersion(),
           enabled: false
         }
       ]
