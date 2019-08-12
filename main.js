@@ -95,6 +95,10 @@ function createWindow () {
       url: 'https://github.com/vjba/whatstron'
     }),
     {
+      label: '',
+      type: 'separator'
+    },
+    {
       label: 'Help',
       icon: helpIcon,
       submenu: [
