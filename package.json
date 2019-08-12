@@ -2,7 +2,7 @@
     "name": "whatstron",
     "productName": "WhatsTron",
     "homepage": "https://vjba.github.io/whatstron/",
-    "version": "1.1.2",
+    "version": "1.2.0",
     "description": "Desktop WhatsApp client for Linux, built with Electron",
     "main": "main.js",
     "license": "MIT",
@@ -22,7 +22,7 @@
         "lint": "npx eslint main.js --fix",
         "start": "electron .",
         "pack": "electron-builder --dir",
-        "dist": "electron-builder --linux",
+        "dist": "electron-builder --linux --publish onTag",
         "release": "build",
         "postinstall": "electron-builder install-app-deps"
     },

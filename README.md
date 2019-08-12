@@ -1,12 +1,14 @@
 # WhatsTron
 
-[![Maintenance](https://img.shields.io/maintenance/yes/2019.svg)](javascript:)
-[![Code style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](https://standardjs.com/)
+![Maintenance](https://img.shields.io/maintenance/yes/2019.svg)
+[![GitHub All Releases](https://img.shields.io/github/downloads/vjba/whatstron/total.svg)](https://github.com/vjba/whatstron/releases/latest)
 [![GitHub release](https://img.shields.io/github/release/vjba/whatstron.svg)](https://github.com/vjba/whatstron/releases/latest)
-[![GitHub Release Date](https://img.shields.io/github/release-date/vjba/whatstron.svg)](javascript:)
+![GitHub Release Date](https://img.shields.io/github/release-date/vjba/whatstron.svg)
+[![Codacy grade](https://img.shields.io/codacy/grade/9374f413c95a4718b65ac087f64be33d)](https://app.codacy.com/project/vjba/whatstron/dashboard)
 [![GitHub issues](https://img.shields.io/github/issues/vjba/whatstron.svg)](https://github.com/vjba/whatstron/issues)
 [![Master branch status](https://img.shields.io/travis/vjba/whatstron/master.svg?label=master)](https://travis-ci.org/vjba/whatstron/branches)
 [![Develop branch status](https://img.shields.io/travis/vjba/whatstron/develop.svg?label=develop)](https://travis-ci.org/vjba/whatstron/branches)
+[![Code style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](https://standardjs.com/)
 [![GitHub](https://img.shields.io/github/license/vjba/whatstron.svg)](https://github.com/vjba/whatstron/blob/develop/LICENSE.md)
 
 WhatsTron is a desktop WhatsApp client for Linux, built with Electron
@@ -17,6 +19,10 @@ WhatsTron is a desktop WhatsApp client for Linux, built with Electron
 * **Tray icon** for quick access to window restore, visiting this repo, and app exit
 * **Super speedy load time** compared to firing up a browser, thanks to [Electron](https://electronjs.org)
 * **Close to tray** so you don't accidentally close the app. Just click on the tray icon and then 'Restore Window'
+
+## Screenshot
+
+![Screenshot](./assets/screenshot-1.1.2.png)
 
 ## Installation
 
@@ -76,12 +82,12 @@ yarn dist   # builds packages for AppImage, deb, and tar.xz to /dist
 
 ## Contributing
 
-Please read [CONTRIBUTING.md](CONTRIBUTING.md)
+Please read [CONTRIBUTING.md](./CONTRIBUTING.md)
 
 ## Changelog
 
-Please read [CHANGELOG.md](CHANGELOG.md)
+Please read [CHANGELOG.md](./CHANGELOG.md)
 
 ## License
 
-[MIT](LICENSE.md)
+[MIT](./LICENSE.md)

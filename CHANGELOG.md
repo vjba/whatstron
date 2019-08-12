@@ -8,18 +8,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ![GitHub release](https://img.shields.io/github/release/vjba/whatstron.svg)
 ![GitHub Release Date](https://img.shields.io/github/release-date/vjba/whatstron.svg)
 
-## [Unreleased]
+## [1.2.0] - 2019-08-12
 
-## [1.2.0] - XXXX-XX-XX
+### Added
+
+- Links now open in OS default browser ([issue #7](https://github.com/vjba/whatstron/issues/7))
+- Codacy integration
+- README.md shields
+- README.md screenshot
 
 ### Changed
 
-- Electron version ^4.0.0 to ^5.0.0 or ^6.0.0
-- FlatHub publishing
-
-### Fixed
-
-- Snapcraft publishing
+- 'Report Issue' now links to template selection
+- Moved menu items order
 
 ## [1.1.2] - 2019-08-09
 
