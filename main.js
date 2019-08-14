@@ -60,14 +60,13 @@ function createWindow () {
   })
 
   // Change User-Agent to circumvent 'WhatsApp works with Google Chrome 49+' alert on startup
-  // TODO Introduce array and randomizer for multiple agents
-  mainWindow.webContents.setUserAgent('Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:70.0) Gecko/20100101 Firefox/70.0.0')
+  mainWindow.webContents.setUserAgent('Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36')
 
   // Click close hides window
   mainWindow.on('close', (event) => {
     if (mainWindow.isVisible()) {
       event.preventDefault()
-      mainWindow.hide()
+      mainWindow.minimize()
     }
   })
 
@@ -197,8 +196,3 @@ app.on('web-contents-created', (event, contents) => {
 // This method will be called when Electron has finished
 // initialization (all of the above) and is ready to create browser window
 app.on('ready', createWindow)
-
-// TODO
-// https://electronjs.org/docs/api/net
-// https://www.christianengvall.se/electron-show-messagebox/
-// https://api.github.com/repos/vjba/whatstron/releases
