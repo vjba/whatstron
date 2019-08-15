@@ -21,7 +21,7 @@
         "lint": "npx eslint main.js --fix",
         "start": "electron .",
         "pack": "electron-builder --dir",
-        "dist": "electron-builder --linux",
+        "dist": "electron-builder --linux -p always",
         "release": "build",
         "postinstall": "electron-builder install-app-deps"
     },
