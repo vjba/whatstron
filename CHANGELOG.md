@@ -12,14 +12,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ![GitHub release](https://img.shields.io/github/release/vjba/whatstron.svg)
 ![GitHub Release Date](https://img.shields.io/github/release-date/vjba/whatstron.svg)
 
+## [UNRELEASED]
+
 ## [1.3.0] - 2019-08-XX
 
 ### Added
 
+- Alert on new version
+- Window now minimizes on close instead of hiding
 - Automated version detection
 
-### Fixed
+### Changed
 
+- Upgraded from Electron 4.x.y to 6.x.y
 - Cleared up comments
 
 ## [1.2.0] - 2019-08-12
