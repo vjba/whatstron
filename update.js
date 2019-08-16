@@ -8,6 +8,7 @@ function getLocalVersion () {
   const packageVersion = JSON.stringify(packageJson.version)
   localVersion = packageVersion.replace(/[".]+/g, '')
   console.log('DEBUG: local version = ' + localVersion)
+  return packageJson
 }
 
 async function fetchRemoteVersion () {
