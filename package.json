@@ -82,12 +82,7 @@
         "linux": {
             "icon": "assets/",
             "target": [
-                "AppImage",
-                "deb",
-                "tar.xz",
-                "snap",
-                "freebsd",
-                "rpm"
+                "AppImage"
             ],
             "category": "Network;Chat",
             "desktop": {
