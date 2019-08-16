@@ -21,7 +21,7 @@
         "lint": "npx eslint main.js --fix",
         "start": "electron .",
         "pack": "electron-builder --dir",
-        "dist": "electron-builder --linux -p always",
+        "dist": "electron-builder --linux --publish always",
         "release": "build",
         "postinstall": "electron-builder install-app-deps"
     },
@@ -89,26 +89,8 @@
                 "StartupWMClass": "whatstron"
             }
         },
-        "deb": {
-            "artifactName": "${productName}-${version}-${arch}.${ext}",
-            "depends": [
-                "gconf2"
-            ]
-        },
         "appImage": {
             "artifactName": "${productName}-${version}-${arch}.${ext}"
-        },
-        "freebsd": {
-            "artifactName": "${productName}-${version}-${arch}.${ext}"
-        },
-        "snap": {
-            "confinement": "strict",
-            "plugs": [
-                "default"
-            ],
-            "stagePackages": [
-                "default"
-            ]
         }
     }
 }
