@@ -27,7 +27,7 @@ install:
 script:
 - yarn
 - yarn test
-- yarn release
+- yarn dist
 
 env:
   matrix:
