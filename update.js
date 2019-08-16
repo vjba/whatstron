@@ -8,7 +8,7 @@ function getLocalVersion () {
   const packageVersion = JSON.stringify(packageJson.version)
   localVersion = packageVersion.replace(/[".]+/g, '')
   console.log('DEBUG: local version = ' + localVersion)
-  return packageJson
+  return packageVersion
 }
 
 async function fetchRemoteVersion () {
@@ -27,7 +27,7 @@ async function saveRemoteVersion (ver) {
 function compareVersions () {
   if (localVersion !== remoteVersion) {
     try {
-      dialog.showMessageBox(dialogOptions, (reponse) => {
+      dialog.showMessageBox(null, dialogOptions, (reponse) => {
         if (reponse === 0) {
           shell.openExternal('https://github.com/vjba/whatstron/releases/latest')
         }
