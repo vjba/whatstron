@@ -1,7 +1,7 @@
 'use strict'
-// Modules to control application life and create native browser window
 const { app, BrowserWindow, Menu, Tray, shell } = require('electron')
 const { openUrlMenuItem } = require('electron-util')
+const { getLocalVersion, fetchRemoteVersion } = require('./update')
 const path = require('path')
 const URL = require('url').URL
 
@@ -21,14 +21,6 @@ const deleteDataIcon = path.join(__dirname, 'assets', 'delete.png')
 const restoreIcon = path.join(__dirname, 'assets', 'desktop_windows.png')
 const websiteIcon = path.join(__dirname, 'assets', 'link.png')
 const restartIcon = path.join(__dirname, 'assets', 'refresh.png')
-
-// fetch version from package.json
-function getVersion () {
-  const packageJson = require('./package.json')
-  const json = JSON.stringify(packageJson.version)
-  const version = json.replace(/["]+/g, '')
-  return version
-}
 
 // Create the browser window.
 function createWindow () {
@@ -137,7 +129,7 @@ function createWindow () {
           type: 'separator'
         },
         {
-          label: 'WhatsTron ' + getVersion(),
+          label: 'WhatsTron ' + getLocalVersion(),
           enabled: false
         }
       ]
@@ -196,3 +188,5 @@ app.on('web-contents-created', (event, contents) => {
 // This method will be called when Electron has finished
 // initialization (all of the above) and is ready to create browser window
 app.on('ready', createWindow)
+
+app.on('ready', fetchRemoteVersion)
