@@ -26,9 +26,9 @@ WhatsTron is a desktop WhatsApp client for Linux, built with Electron
 
 ## Installation
 
-### Packages (`.deb`, `.AppImage`, `.rpm`, `.freebsd`, `.snap`)
+### `.AppImage`
 
-Please see the repository [Releases](https://github.com/vjba/whatstron/releases/latest) page for the package latest downloads. *Note: currently only `.deb` and `.AppImage` packages are tested on [Debian Stable](https://wiki.debian.org/DebianReleases) + GNOME*
+Please see the repository [Releases](https://github.com/vjba/whatstron/releases/latest) page for the package latest downloads. *Note: currently only `.AppImage` packages are tested on [Debian Stable](https://wiki.debian.org/DebianReleases) + GNOME*
 
 ### yarn
 
@@ -52,7 +52,13 @@ npm install
 npm start
 ```
 
-### Issue with `start`
+## Launch Issue
+
+### With `.AppImage`
+
+Due to the default kernel option `unprivileged_userns_clone=0` now being shipped within Debian and Arch, WhatsTron versions > `1.2.0` will not launch. You can alter this by entering the command `sudo sysctl kernel.unprivileged_userns_clone=1` (***note***: _root privililedges required_)
+
+### With `Yarn` and `NPM`
 
 When running `yarn start` or `npm start` you may encounter to follow error:
 
