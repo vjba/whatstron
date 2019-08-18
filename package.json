@@ -2,7 +2,7 @@
     "name": "whatstron",
     "productName": "WhatsTron",
     "homepage": "https://vjba.github.io/whatstron/",
-    "version": "1.3.0-rc1",
+    "version": "1.3.0",
     "description": "Desktop WhatsApp client for Linux, built with Electron",
     "main": "main.js",
     "license": "MIT",
@@ -81,7 +81,7 @@
         ],
         "appId": "com.vjba.WhatsTron",
         "linux": {
-            "icon": "assets/",
+            "icon": "assets/icon.icns",
             "target": [
                 "AppImage"
             ],
