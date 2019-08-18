@@ -2,7 +2,7 @@
     "name": "whatstron",
     "productName": "WhatsTron",
     "homepage": "https://vjba.github.io/whatstron/",
-    "version": "1.2.0",
+    "version": "1.3.0",
     "description": "Desktop WhatsApp client for Linux, built with Electron",
     "main": "main.js",
     "license": "MIT",
@@ -18,35 +18,34 @@
     },
     "scripts": {
         "test": "yarn lint && nyc mocha",
-        "report-coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov -t 5ff7c9dc-d846-4a57-af9a-78f8214f8138",
         "lint": "npx eslint main.js --fix",
         "start": "electron .",
         "pack": "electron-builder --dir",
-        "dist": "electron-builder --linux --publish onTag",
+        "dist": "electron-builder --linux --publish always",
         "release": "build",
         "postinstall": "electron-builder install-app-deps"
     },
     "dependencies": {
-        "electron-context-menu": "^0.12.1",
-        "electron-debug": "^3.0.0",
-        "electron-store": "^3.3.0",
-        "electron-unhandled": "^2.2.0",
-        "electron-updater": "^4.0.14",
-        "electron-util": "^0.12.0"
+        "electron-context-menu": "^0.14.0",
+        "electron-debug": "^3.0.1",
+        "electron-store": "^4.0.0",
+        "electron-unhandled": "^3.0.0",
+        "electron-updater": "^4.1.2",
+        "electron-util": "^0.12.1",
+        "node-fetch": "^2.6.0"
     },
     "devDependencies": {
-        "codecov": "^3.5.0",
-        "electron": "^4.2.6",
-        "electron-builder": "^20.43.0",
+        "electron": "^6.0.0",
+        "electron-builder": "^21.0.0",
         "eslint": "^6.1.0",
         "eslint-config-standard": "^13.0.1",
         "eslint-plugin-import": "^2.18.2",
         "eslint-plugin-node": "^9.1.0",
         "eslint-plugin-promise": "^4.2.1",
         "eslint-plugin-standard": "^4.0.0",
-        "mocha": "^6.1.4",
+        "mocha": "^6.2.0",
         "nyc": "^14.1.1",
-        "spectron": "^6.0.0"
+        "spectron": "^8.0.0"
     },
     "keywords": [
         "Electron",
@@ -82,40 +81,17 @@
         ],
         "appId": "com.vjba.WhatsTron",
         "linux": {
-            "icon": "assets/",
+            "icon": "assets/icon.icns",
             "target": [
-                "AppImage",
-                "deb",
-                "tar.xz",
-                "snap",
-                "freebsd",
-                "rpm"
+                "AppImage"
             ],
             "category": "Network;Chat",
             "desktop": {
                 "StartupWMClass": "whatstron"
             }
         },
-        "deb": {
-            "artifactName": "${productName}-${version}-${arch}.${ext}",
-            "depends": [
-                "gconf2"
-            ]
-        },
         "appImage": {
             "artifactName": "${productName}-${version}-${arch}.${ext}"
-        },
-        "freebsd": {
-            "artifactName": "${productName}-${version}-${arch}.${ext}"
-        },
-        "snap": {
-            "confinement": "strict",
-            "plugs": [
-                "default"
-            ],
-            "stagePackages": [
-                "default"
-            ]
         }
     }
 }

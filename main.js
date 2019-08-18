@@ -1,12 +1,11 @@
 'use strict'
-// Modules to control application life and create native browser window
 const { app, BrowserWindow, Menu, Tray, shell } = require('electron')
 const { openUrlMenuItem } = require('electron-util')
+const { getLocalVersion, fetchRemoteVersion } = require('./update')
 const path = require('path')
 const URL = require('url').URL
 
-// Keep a global reference of the window object, if you don't, the window will
-// be closed automatically when the JavaScript object is garbage collected.
+// Some global vars
 let mainWindow = null
 let appIcon = null
 const appURL = 'https://web.whatsapp.com'
@@ -23,8 +22,8 @@ const restoreIcon = path.join(__dirname, 'assets', 'desktop_windows.png')
 const websiteIcon = path.join(__dirname, 'assets', 'link.png')
 const restartIcon = path.join(__dirname, 'assets', 'refresh.png')
 
+// Create the browser window.
 function createWindow () {
-  // Create the browser window.
   mainWindow = new BrowserWindow({
     show: false,
     title: 'WhatsTron',
@@ -53,14 +52,13 @@ function createWindow () {
   })
 
   // Change User-Agent to circumvent 'WhatsApp works with Google Chrome 49+' alert on startup
-  // TODO Introduce array and randomizer for multiple agents
-  mainWindow.webContents.setUserAgent('Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:70.0) Gecko/20100101 Firefox/70.0.0')
+  mainWindow.webContents.setUserAgent('Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36')
 
   // Click close hides window
   mainWindow.on('close', (event) => {
     if (mainWindow.isVisible()) {
       event.preventDefault()
-      mainWindow.hide()
+      mainWindow.minimize()
     }
   })
 
@@ -87,6 +85,10 @@ function createWindow () {
       icon: websiteIcon,
       url: 'https://github.com/vjba/whatstron'
     }),
+    {
+      label: '',
+      type: 'separator'
+    },
     {
       label: 'Help',
       icon: helpIcon,
@@ -127,7 +129,7 @@ function createWindow () {
           type: 'separator'
         },
         {
-          label: 'WhatsTron v1.2.0',
+          label: 'WhatsTron ' + getLocalVersion(),
           enabled: false
         }
       ]
@@ -186,3 +188,5 @@ app.on('web-contents-created', (event, contents) => {
 // This method will be called when Electron has finished
 // initialization (all of the above) and is ready to create browser window
 app.on('ready', createWindow)
+
+app.on('ready', fetchRemoteVersion)
