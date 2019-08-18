@@ -12,13 +12,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ![GitHub release](https://img.shields.io/github/release/vjba/whatstron.svg)
 ![GitHub Release Date](https://img.shields.io/github/release-date/vjba/whatstron.svg)
 
-## [UNRELEASED]
-
-## [1.3.0] - 2019-08-XX
+## [1.3.0] - 2019-08-18
 
 ### Added
 
-- Alert on new version
+- Update alert on new version
 - Window now minimizes on close instead of hiding
 - Automated version detection
 

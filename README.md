@@ -16,9 +16,10 @@ WhatsTron is a desktop WhatsApp client for Linux, built with Electron
 ## Features
 
 * **Persistent login** as is the standard browser behaviour
-* **Tray icon** for quick access to window restore, visiting this repo, and app exit
+* **Tray icon** for quick access to app functions
 * **Super speedy load time** compared to firing up a browser, thanks to [Electron](https://electronjs.org)
 * **Close to tray** so you don't accidentally close the app. Just click on the tray icon and then 'Restore Window'
+* **Update notification** when a new version is available
 
 ## Screenshot
 
@@ -56,7 +57,7 @@ npm start
 
 ### With `.AppImage`
 
-Due to the default kernel option `unprivileged_userns_clone=0` now being shipped within Debian and Arch, WhatsTron versions > `1.2.0` will not launch. You can alter this by entering the command `sudo sysctl kernel.unprivileged_userns_clone=1` (***note***: _root privililedges required_)
+Due to the default kernel option `unprivileged_userns_clone=0` now being shipped within Debian and Arch, WhatsTron versions > `1.2.0` will not launch. You can alter this by entering the command `sudo sysctl kernel.unprivileged_userns_clone=1`
 
 ### With `Yarn` and `NPM`
 
@@ -66,11 +67,12 @@ When running `yarn start` or `npm start` you may encounter to follow error:
 [1234:5678/123456.234567:FATAL:setuid_sandbox_host.cc(123)] The SUID sandbox helper binary was found, but is not configured correctly. Rather than run without sandboxing Im aborting now. You need to make sure that /home/user/whatstron/node_modules/electron/dist/chrome-sandbox is owned by root and has mode 4755.
 ```
 
-To fix this error enter the following commands (***note***: _root privililedges required_)
+To fix this error enter the following commands
 
 ```bash
 # changes owner of chrome-sandbox to root
 sudo chown root node_modules/electron/dist/chrome-sandbox
+
 # changes permissions of chrome-sandbox to 4755 / -rwsr-xr-x
 sudo chmod 4755 node_modules/electron/dist/chrome-sandbox
 ```
@@ -83,7 +85,7 @@ Using your preferred method of package manager:
 yarn start  # run the electron app
 yarn lint   # lints the code to conform with StandardJS
 yarn pack   # generate an unpacked build to /dist/linux-unpacked
-yarn dist   # builds packages for AppImage, deb, and tar.xz to /dist
+yarn dist   # builds packages for AppImage
 ```
 
 ## Contributing
