@@ -55,7 +55,7 @@ npm start
 
 ## Launch Issue
 
-### With `.AppImage`
+### With packages (`.AppImage`, `.deb`, etc...)
 
 Due to the default kernel option `unprivileged_userns_clone=0` now being shipped within Debian and Arch, WhatsTron versions > `1.2.0` will not launch. You can alter this by entering the command `sudo sysctl kernel.unprivileged_userns_clone=1`
 
