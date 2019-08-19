@@ -1,26 +1,14 @@
 'use strict'
-const { app, BrowserWindow, Menu, Tray, shell } = require('electron')
-const { openUrlMenuItem } = require('electron-util')
-const { getLocalVersion, fetchRemoteVersion } = require('./update')
-const path = require('path')
+const { app, BrowserWindow, Tray } = require('electron')
+const { fetchRemoteVersion } = require('./update')
 const URL = require('url').URL
+const { contextMenu, trayIcon } = require('./tray')
 
 // Some global vars
 let mainWindow = null
 let appIcon = null
 const appURL = 'https://web.whatsapp.com'
 const instanceLock = app.requestSingleInstanceLock()
-
-// Set icons
-const trayIcon = path.join(__dirname, 'assets', 'icon.png')
-const exitIcon = path.join(__dirname, 'assets', 'power_settings_new.png')
-const helpIcon = path.join(__dirname, 'assets', 'help.png')
-const newIssueIcon = path.join(__dirname, 'assets', 'add_alert.png')
-const issuesIcon = path.join(__dirname, 'assets', 'bug_report.png')
-const deleteDataIcon = path.join(__dirname, 'assets', 'delete.png')
-const restoreIcon = path.join(__dirname, 'assets', 'desktop_windows.png')
-const websiteIcon = path.join(__dirname, 'assets', 'link.png')
-const restartIcon = path.join(__dirname, 'assets', 'refresh.png')
 
 // Create the browser window.
 function createWindow () {
@@ -71,82 +59,6 @@ function createWindow () {
   // Set tool tip for tray icon
   appIcon.setToolTip('WhatsTron')
 
-  // Create context menu for tray icon
-  const contextMenu = Menu.buildFromTemplate([
-    {
-      label: 'Restore Window',
-      icon: restoreIcon,
-      click: () => {
-        mainWindow.show()
-      }
-    },
-    openUrlMenuItem({
-      label: 'Visit Website',
-      icon: websiteIcon,
-      url: 'https://github.com/vjba/whatstron'
-    }),
-    {
-      label: '',
-      type: 'separator'
-    },
-    {
-      label: 'Help',
-      icon: helpIcon,
-      submenu: [
-        openUrlMenuItem({
-          label: 'Report Issue',
-          icon: newIssueIcon,
-          url: 'https://github.com/vjba/whatstron/issues/new/choose'
-        }),
-        openUrlMenuItem({
-          label: 'View Issues',
-          icon: issuesIcon,
-          url: 'https://github.com/vjba/whatstron/issues'
-        }),
-        {
-          label: '',
-          type: 'separator'
-        },
-        {
-          label: 'Delete App Data',
-          icon: deleteDataIcon,
-          click () {
-            shell.moveItemToTrash(app.getPath('userData'))
-            app.relaunch()
-            process.exit(0)
-          }
-        },
-        {
-          label: 'Restart App',
-          icon: restartIcon,
-          click () {
-            app.relaunch()
-            process.exit(0)
-          }
-        },
-        {
-          label: '',
-          type: 'separator'
-        },
-        {
-          label: 'WhatsTron ' + getLocalVersion(),
-          enabled: false
-        }
-      ]
-    },
-    {
-      label: '',
-      type: 'separator'
-    },
-    {
-      label: 'Exit',
-      icon: exitIcon,
-      click: () => {
-        process.exit(0)
-      }
-    }
-  ])
-
   // Load url
   mainWindow.loadURL(appURL)
 
@@ -190,3 +102,7 @@ app.on('web-contents-created', (event, contents) => {
 app.on('ready', createWindow)
 
 app.on('ready', fetchRemoteVersion)
+
+module.exports.app = app
+module.exports.BrowserWindow = BrowserWindow
+module.exports.mainWindow = mainWindow
