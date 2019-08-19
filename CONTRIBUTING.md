@@ -1,5 +1,6 @@
 ---
-permalink: /CONTRIBUTING/
+title: Contributing
+layout: post
 ---
 
 # Contributing to WhatsTron

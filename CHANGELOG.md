@@ -1,5 +1,6 @@
 ---
-permalink: /CHANGELOG/
+title: Changelog
+layout: post
 ---
 
 # Changelog
@@ -11,6 +12,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ![GitHub release](https://img.shields.io/github/release/vjba/whatstron.svg)
 ![GitHub Release Date](https://img.shields.io/github/release-date/vjba/whatstron.svg)
+
+## [1.3.1] - 2019-08-19
+
+### Fixed
+
+- Build packages
+- .md permalinks
 
 ## [1.3.0] - 2019-08-18
 
