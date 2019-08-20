@@ -5,6 +5,7 @@ const { openUrlMenuItem } = require('electron-util')
 const { getLocalVersion } = require('./update')
 const { mainWindow, app } = require('./main')
 
+// Icon resources
 const trayIcon = path.join(__dirname, 'assets', 'icon.png')
 const exitIcon = path.join(__dirname, 'assets', 'power_settings_new.png')
 const helpIcon = path.join(__dirname, 'assets', 'help.png')

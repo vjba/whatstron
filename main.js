@@ -6,7 +6,7 @@ const { contextMenu, trayIcon } = require('./tray')
 
 // Some global vars
 let mainWindow = null
-let appIcon = null
+let appTray = null
 const appURL = 'https://web.whatsapp.com'
 const instanceLock = app.requestSingleInstanceLock()
 
@@ -33,16 +33,16 @@ function createWindow () {
     event.preventDefault()
   })
 
-  // Open default browser on external links
+  // Open OS default browser on external links
   mainWindow.webContents.on('new-window', (event, url) => {
     event.preventDefault()
     require('electron').shell.openExternal(url)
   })
 
-  // Change User-Agent to circumvent 'WhatsApp works with Google Chrome 49+' alert on startup
+  // Change HTTP user-agent
   mainWindow.webContents.setUserAgent('Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36')
 
-  // Click close hides window
+  // Click close minimizes window
   mainWindow.on('close', (event) => {
     if (mainWindow.isVisible()) {
       event.preventDefault()
@@ -50,20 +50,14 @@ function createWindow () {
     }
   })
 
-  // Create tray icon
-  appIcon = new Tray(trayIcon)
-
-  // Set title for tray icon
-  appIcon.setTitle('WhatsTron')
-
-  // Set tool tip for tray icon
-  appIcon.setToolTip('WhatsTron')
+  // appTray configuration
+  appTray = new Tray(trayIcon)
+  appTray.setTitle('WhatsTron')
+  appTray.setToolTip('WhatsTron')
+  appTray.setContextMenu(contextMenu)
 
   // Load url
   mainWindow.loadURL(appURL)
-
-  // Add above context menu to tray
-  appIcon.setContextMenu(contextMenu)
 
   // Don't show until we are ready and loaded
   mainWindow.once('ready-to-show', () => {
@@ -97,10 +91,9 @@ app.on('web-contents-created', (event, contents) => {
   })
 })
 
-// This method will be called when Electron has finished
-// initialization (all of the above) and is ready to create browser window
 app.on('ready', createWindow)
 
+// Check for update
 app.on('ready', fetchRemoteVersion)
 
 module.exports.app = app
