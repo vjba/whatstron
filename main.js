@@ -1,6 +1,6 @@
 'use strict'
 const { app, BrowserWindow, Tray } = require('electron')
-const { fetchRemoteVersion } = require('./update')
+const fetchRemoteVersion = require('./update')
 const URL = require('url').URL
 const { contextMenu, trayIcon } = require('./tray')
 
