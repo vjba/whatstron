@@ -14,7 +14,6 @@ addons:
     - xvfb
 
 before_install:
-  - sudo apt-get update -q
   - sudo apt-get install -y rpm
 
 cache: yarn
