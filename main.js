@@ -1,26 +1,14 @@
 'use strict'
-const { app, BrowserWindow, Menu, Tray, shell } = require('electron')
-const { openUrlMenuItem } = require('electron-util')
-const { getLocalVersion, fetchRemoteVersion } = require('./update')
-const path = require('path')
+const { app, BrowserWindow, Tray } = require('electron')
+const fetchRemoteVersion = require('./update')
 const URL = require('url').URL
+const { contextMenu, trayIcon } = require('./tray')
 
 // Some global vars
 let mainWindow = null
-let appIcon = null
+let appTray = null
 const appURL = 'https://web.whatsapp.com'
 const instanceLock = app.requestSingleInstanceLock()
-
-// Set icons
-const trayIcon = path.join(__dirname, 'assets', 'icon.png')
-const exitIcon = path.join(__dirname, 'assets', 'power_settings_new.png')
-const helpIcon = path.join(__dirname, 'assets', 'help.png')
-const newIssueIcon = path.join(__dirname, 'assets', 'add_alert.png')
-const issuesIcon = path.join(__dirname, 'assets', 'bug_report.png')
-const deleteDataIcon = path.join(__dirname, 'assets', 'delete.png')
-const restoreIcon = path.join(__dirname, 'assets', 'desktop_windows.png')
-const websiteIcon = path.join(__dirname, 'assets', 'link.png')
-const restartIcon = path.join(__dirname, 'assets', 'refresh.png')
 
 // Create the browser window.
 function createWindow () {
@@ -45,16 +33,16 @@ function createWindow () {
     event.preventDefault()
   })
 
-  // Open default browser on external links
+  // Open OS default browser on external links
   mainWindow.webContents.on('new-window', (event, url) => {
     event.preventDefault()
     require('electron').shell.openExternal(url)
   })
 
-  // Change User-Agent to circumvent 'WhatsApp works with Google Chrome 49+' alert on startup
+  // Change HTTP user-agent
   mainWindow.webContents.setUserAgent('Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36')
 
-  // Click close hides window
+  // Click close minimizes window
   mainWindow.on('close', (event) => {
     if (mainWindow.isVisible()) {
       event.preventDefault()
@@ -62,96 +50,14 @@ function createWindow () {
     }
   })
 
-  // Create tray icon
-  appIcon = new Tray(trayIcon)
-
-  // Set title for tray icon
-  appIcon.setTitle('WhatsTron')
-
-  // Set tool tip for tray icon
-  appIcon.setToolTip('WhatsTron')
-
-  // Create context menu for tray icon
-  const contextMenu = Menu.buildFromTemplate([
-    {
-      label: 'Restore Window',
-      icon: restoreIcon,
-      click: () => {
-        mainWindow.show()
-      }
-    },
-    openUrlMenuItem({
-      label: 'Visit Website',
-      icon: websiteIcon,
-      url: 'https://github.com/vjba/whatstron'
-    }),
-    {
-      label: '',
-      type: 'separator'
-    },
-    {
-      label: 'Help',
-      icon: helpIcon,
-      submenu: [
-        openUrlMenuItem({
-          label: 'Report Issue',
-          icon: newIssueIcon,
-          url: 'https://github.com/vjba/whatstron/issues/new/choose'
-        }),
-        openUrlMenuItem({
-          label: 'View Issues',
-          icon: issuesIcon,
-          url: 'https://github.com/vjba/whatstron/issues'
-        }),
-        {
-          label: '',
-          type: 'separator'
-        },
-        {
-          label: 'Delete App Data',
-          icon: deleteDataIcon,
-          click () {
-            shell.moveItemToTrash(app.getPath('userData'))
-            app.relaunch()
-            process.exit(0)
-          }
-        },
-        {
-          label: 'Restart App',
-          icon: restartIcon,
-          click () {
-            app.relaunch()
-            process.exit(0)
-          }
-        },
-        {
-          label: '',
-          type: 'separator'
-        },
-        {
-          label: 'WhatsTron ' + getLocalVersion(),
-          enabled: false
-        }
-      ]
-    },
-    {
-      label: '',
-      type: 'separator'
-    },
-    {
-      label: 'Exit',
-      icon: exitIcon,
-      click: () => {
-        process.exit(0)
-      }
-    }
-  ])
+  // appTray configuration
+  appTray = new Tray(trayIcon)
+  appTray.setTitle('WhatsTron')
+  appTray.setToolTip('WhatsTron')
+  appTray.setContextMenu(contextMenu)
 
   // Load url
   mainWindow.loadURL(appURL)
-
-  // Add above context menu to tray
-  appIcon.setContextMenu(contextMenu)
 
   // Don't show until we are ready and loaded
   mainWindow.once('ready-to-show', () => {
@@ -185,8 +91,11 @@ app.on('web-contents-created', (event, contents) => {
   })
 })
 
-// This method will be called when Electron has finished
-// initialization (all of the above) and is ready to create browser window
 app.on('ready', createWindow)
 
+// Check for update
 app.on('ready', fetchRemoteVersion)
+
+module.exports.app = app
+module.exports.BrowserWindow = BrowserWindow
+module.exports.mainWindow = mainWindow

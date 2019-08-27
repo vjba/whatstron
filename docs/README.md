@@ -90,12 +90,12 @@ yarn dist   # builds packages for AppImage
 
 ## Contributing
 
-Please read [CONTRIBUTING.md](/CONTRIBUTING/)
+Please read [CONTRIBUTING.md](./CONTRIBUTING.md)
 
 ## Changelog
 
-Please read [CHANGELOG.md](/CHANGELOG/)
+Please read [CHANGELOG.md](./CHANGELOG.md)
 
 ## License
 
-[MIT](/LICENSE/)
+[MIT](./LICENSE.md)
