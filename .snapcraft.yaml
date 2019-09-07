@@ -13,7 +13,7 @@ architectures:
 parts:
   whatstron:
     plugin: dump
-    source: .
+    source: https://github.com/vjba/whatstron/releases/download/1.3.2/WhatsTron-1.3.2-amd64.deb
     source-type: deb
     stage-packages:
       - libnotify4
