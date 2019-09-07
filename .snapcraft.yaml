@@ -1,6 +1,6 @@
 name: whatstron
 base: core18
-version: '1.0.1'
+version: "1.3.2"
 grade: stable
 summary: Desktop WhatsApp client for Linux, built with Electron
 description: Desktop WhatsApp client for Linux, built with Electron
@@ -12,8 +12,9 @@ architectures:
 
 parts:
   whatstron:
-    plugin: nodejs
+    plugin: dump
     source: .
+    source-type: deb
     stage-packages:
       - libnotify4
       - libappindicator1
@@ -28,6 +29,7 @@ parts:
 apps:
   whatstron:
     command: env TMPDIR=$XDG_RUNTIME_DIR PATH=/usr/local/bin:${PATH} ${SNAP}/bin/desktop-launch $SNAP/whatstron/desktop
+    desktop: usr/share/applications/whatstron.desktop
     plugs:
       - home
       - x11
