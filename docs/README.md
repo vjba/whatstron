@@ -20,16 +20,13 @@ WhatsTron is a desktop WhatsApp client for Linux, built with Electron
 * **Super speedy load time** compared to firing up a browser, thanks to [Electron](https://electronjs.org)
 * **Close to tray** so you don't accidentally close the app. Just click on the tray icon and then 'Restore Window'
 * **Update notification** when a new version is available
-
-## Screenshot
-
-![Screenshot](./assets/screenshot-1.1.2.png)
+* **Sandboxed** so it doesn't interact in any other way with your OS
 
 ## Installation
 
 ### `.AppImage`
 
-Please see the repository [Releases](https://github.com/vjba/whatstron/releases/latest) page for the package latest downloads. *Note: currently only `.AppImage` packages are tested on [Debian Stable](https://wiki.debian.org/DebianReleases) + GNOME*
+Please see the repository [Releases](https://github.com/vjba/whatstron/releases/latest) page for the package latest downloads. *Note: currently only `.AppImage` and `.deb` packages are tested on [Ubuntu non-LTS] + GNOME*. If you experience issues with your configuration please open a new [issue](https://github.com/vjba/whatstron/issues).
 
 ### yarn
 
