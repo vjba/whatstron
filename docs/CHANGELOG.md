@@ -1,3 +1,9 @@
+---
+layout: default
+title: Changelog
+nav_order: 2
+---
+
 # Changelog
 
 All notable changes to this project will be documented in this file.

@@ -1,3 +1,9 @@
+---
+layout: default
+title: Readme
+nav_order: 1
+---
+
 # WhatsTron
 
 ![Maintenance](https://img.shields.io/maintenance/yes/2019.svg)
