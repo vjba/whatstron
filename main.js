@@ -91,10 +91,7 @@ app.on('web-contents-created', (event, contents) => {
   })
 })
 
-app.on('ready', createWindow)
-
-// Check for update
-app.on('ready', fetchRemoteVersion)
+app.on('ready', createWindow, fetchRemoteVersion)
 
 module.exports.app = app
 module.exports.BrowserWindow = BrowserWindow
