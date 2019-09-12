@@ -59,9 +59,7 @@
             "icon": "assets/icon.icns",
             "target": [
                 "deb",
-                "AppImage",
-                "freebsd",
-                "rpm"
+                "AppImage"
             ],
             "category": "Network;Chat",
             "desktop": {
@@ -76,9 +74,6 @@
             "depends": [
                 "gconf2"
             ]
-        },
-        "freebsd": {
-            "artifactName": "${productName}-${version}-${arch}.${ext}"
         }
     }
 }
