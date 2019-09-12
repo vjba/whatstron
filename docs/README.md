@@ -24,9 +24,18 @@ WhatsTron is a desktop WhatsApp client for Linux, built with Electron
 
 ## Installation
 
-### `.AppImage`
+### Packages (`.deb`, `.AppImage` etc...)
 
-Please see the repository [Releases](https://github.com/vjba/whatstron/releases/latest) page for the package latest downloads. *Note: currently only `.AppImage` and `.deb` packages are tested on [Ubuntu non-LTS] + GNOME*. If you experience issues with your configuration please open a new [issue](https://github.com/vjba/whatstron/issues).
+Please see the repository [Releases](https://github.com/vjba/whatstron/releases/latest) page for the package latest downloads.
+
+*Note: currently only `.AppImage` and `.deb` packages are tested on Ubuntu non-LTS + GNOME*. If you experience issues with your configuration please open a new [issue](https://github.com/vjba/whatstron/issues).
+
+For `.AppImage` packages you'll need to set execution permissions to the downloaded file:
+
+```bash
+cd path/to/downloaded/WhatsTron.AppImage
+chmod +x WhatsTron.AppImage
+```
 
 ### yarn
 
@@ -64,14 +73,14 @@ When running `yarn start` or `npm start` you may encounter to follow error:
 [1234:5678/123456.234567:FATAL:setuid_sandbox_host.cc(123)] The SUID sandbox helper binary was found, but is not configured correctly. Rather than run without sandboxing Im aborting now. You need to make sure that /home/user/whatstron/node_modules/electron/dist/chrome-sandbox is owned by root and has mode 4755.
 ```
 
-To fix this error enter the following commands
+This is due the the `unprivileged_user` issue as detailed above. To fix this error enter the following commands
 
 ```bash
 # changes owner of chrome-sandbox to root
-sudo chown root node_modules/electron/dist/chrome-sandbox
+chown root node_modules/electron/dist/chrome-sandbox
 
 # changes permissions of chrome-sandbox to 4755 / -rwsr-xr-x
-sudo chmod 4755 node_modules/electron/dist/chrome-sandbox
+chmod 4755 node_modules/electron/dist/chrome-sandbox
 ```
 
 ## Usage
