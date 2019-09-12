@@ -1,3 +1,9 @@
+---
+layout: default
+title: Contributing
+nav_order: 3
+---
+
 # Contributing to WhatsTron
 
 We love your input! We want to make contributing to this project as easy and transparent as possible, whether it's:
