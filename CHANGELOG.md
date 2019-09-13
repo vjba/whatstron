@@ -14,11 +14,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ![GitHub release](https://img.shields.io/github/release/vjba/whatstron.svg)
 ![GitHub Release Date](https://img.shields.io/github/release-date/vjba/whatstron.svg)
 
+## [1.3.3] - 2019-09-12
+
+### Fixes
+
+- Menu items causing errors ([#16](https://github.com/vjba/whatstron/issues/16))
+
 ## [1.3.2] - 2019-08-27
 
 ### Security
 
-- Bump deps ([issue #13](https://github.com/vjba/whatstron/issues/13))
+- Bump deps ([#13](https://github.com/vjba/whatstron/issues/13))
 
 ## [1.3.1] - 2019-08-19
 
@@ -44,7 +50,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Links now open in OS default browser ([issue #7](https://github.com/vjba/whatstron/issues/7))
+- Links now open in OS default browser ([#7](https://github.com/vjba/whatstron/issues/7))
 - Codacy integration
 - README.md shields
 - README.md screenshot
@@ -63,7 +69,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
-- Icon issue between dark and light OS themes ([issue #5](https://github.com/vjba/whatstron/issues/5))
+- Icon issue between dark and light OS themes ([#5](https://github.com/vjba/whatstron/issues/5))
 
 ## [1.1.0] - 2019-07-20
 
@@ -101,7 +107,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
-- Second instance detection ([issue #1](https://github.com/vjba/whatstron/issues/1))
+- Second instance detection ([#1](https://github.com/vjba/whatstron/issues/1))
 
 ## [1.0.0] - 2019-07-10
 
