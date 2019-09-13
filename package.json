@@ -25,25 +25,25 @@
         "postinstall": "electron-builder install-app-deps"
     },
     "dependencies": {
-        "electron-context-menu": "^0.14.0",
-        "electron-debug": "^3.0.1",
-        "electron-store": "^4.0.0",
-        "electron-unhandled": "^3.0.0",
-        "electron-updater": "^4.1.2",
-        "electron-util": "^0.12.1",
-        "node-fetch": "^2.6.0"
+        "electron-context-menu": ">=0.15.0",
+        "electron-debug": ">=3.0.1",
+        "electron-store": ">=5.0.0",
+        "electron-unhandled": ">=3.0.0",
+        "electron-updater": ">=4.1.2",
+        "electron-util": ">=0.12.1",
+        "node-fetch": ">=2.6.0"
     },
     "devDependencies": {
-        "electron": "^6.0.2",
-        "electron-builder": "^21.2.0",
-        "eslint": "^6.2.0",
-        "eslint-config-standard": "^13.0.1",
-        "eslint-plugin-import": "^2.18.2",
-        "eslint-plugin-node": "^9.1.0",
-        "eslint-plugin-promise": "^4.2.1",
-        "eslint-plugin-standard": "^4.0.0",
-        "mocha": "^6.2.0",
-        "nyc": "^14.1.1",
+        "electron": "^6.0.9",
+        "electron-builder": ">=21.2.0",
+        "eslint": ">=6.3.0",
+        "eslint-config-standard": ">=14.1.0",
+        "eslint-plugin-import": ">=2.18.2",
+        "eslint-plugin-node": ">=10.0.0",
+        "eslint-plugin-promise": ">=4.2.1",
+        "eslint-plugin-standard": ">=4.0.1",
+        "mocha": ">=6.2.0",
+        "nyc": ">=14.1.1",
         "spectron": "^8.0.0"
     },
     "build": {
