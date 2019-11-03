@@ -1,50 +1,47 @@
-'use scrict'
 const { dialog, shell } = require('electron')
-
-let localVersion, remoteVersion
+const axios = require('axios')
 
 function getLocalVersion () {
-  const packageJson = require('./package.json')
-  const packageVersion = JSON.stringify(packageJson.version)
-  localVersion = packageVersion.replace(/[".]+/g, '')
-  console.log('DEBUG: local version = ' + localVersion)
-  return packageVersion
+  try {
+    const packageJson = require('./package.json')
+    return JSON.stringify(packageJson.version).replace(/["]+/g, '')
+  } catch (error) {
+    console.debug(error)
+  }
 }
 
-async function fetchRemoteVersion () {
-  const fetch = require('node-fetch')
-  fetch('https://api.github.com/repos/vjba/whatstron/releases/latest')
-    .then(res => res.json())
-    .then(json => saveRemoteVersion(JSON.stringify(json.tag_name)))
+function getRemoteVersion () {
+  try {
+    const remoteVersion = axios.get('https://api.github.com/repos/vjba/whatstron/releases/latest').then(res => res.data.tag_name)
+    return remoteVersion
+  } catch (error) {
+    console.error(error)
+  }
 }
 
-async function saveRemoteVersion (ver) {
-  remoteVersion = await ver.replace(/[".]+/g, '').toString()
-  await console.log('DEBUG: remote version = ' + remoteVersion)
-  await compareVersions()
-}
+async function checkUpdate () {
+  const localVersion = getLocalVersion()
+  const remoteVersion = await getRemoteVersion()
 
-function compareVersions () {
   if (localVersion !== remoteVersion) {
-    try {
-      dialog.showMessageBox(null, dialogOptions, (reponse) => {
-        if (reponse === 0) {
-          shell.openExternal('https://github.com/vjba/whatstron/releases/latest')
-        }
-      })
-    } catch (e) {
-      console.log(e)
-    }
+    console.info('Local version: ' + localVersion + '\nRemote version: ' + remoteVersion)
+    dialog.showMessageBoxSync(null, dialogOptions, (response) => {
+      if (response === 0) {
+        shell.openExternal('https://github.com/vjba/whatstron/releases/latest')
+        shell.openItem('http://google.com')
+      }
+    })
   }
 }
 
 const dialogOptions = {
-  buttons: ['Yes, please', 'Maybe later'],
+  buttons: ['Yes, please', 'No, thanks'],
   defaultId: 1,
-  title: 'WhatsTron Update Manager',
+  title: 'WhatsTron Updater',
   message: 'A new version is available!',
-  detail: 'Would you like to open the downloads page?'
+  detail: 'Would you like to open the downloads page?',
+  focus: true
 }
 
 module.exports.getLocalVersion = getLocalVersion
-module.exports.fetchRemoteVersion = fetchRemoteVersion
+module.exports.checkUpdate = checkUpdate
