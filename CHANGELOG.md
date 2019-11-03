@@ -14,9 +14,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ![GitHub release](https://img.shields.io/github/release/vjba/whatstron.svg)
 ![GitHub Release Date](https://img.shields.io/github/release-date/vjba/whatstron.svg)
 
+## [1.3.4] - 2019-11-03
+
+### Security
+
+- Bump dependencies
+
+### Fixed
+
+- Update functionality
+
 ## [1.3.3] - 2019-09-12
 
-### Fixes
+### Fixed
 
 - Menu items causing errors ([#16](https://github.com/vjba/whatstron/issues/16))
 
