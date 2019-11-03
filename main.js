@@ -3,7 +3,7 @@ const { app, BrowserWindow, Tray, Menu, shell } = require('electron')
 const { openUrlMenuItem } = require('electron-util')
 const path = require('path')
 const URL = require('url').URL
-const { fetchRemoteVersion, getLocalVersion } = require('./update')
+const { checkUpdate, getLocalVersion } = require('./update')
 
 // Some global vars
 let mainWindow = null
@@ -149,6 +149,7 @@ function createWindow () {
   // Don't show until we are ready and loaded
   mainWindow.once('ready-to-show', () => {
     mainWindow.show()
+    checkUpdate()
   })
 }
 
@@ -178,4 +179,4 @@ app.on('web-contents-created', (event, contents) => {
   })
 })
 
-app.on('ready', createWindow, fetchRemoteVersion)
+app.on('ready', createWindow)
