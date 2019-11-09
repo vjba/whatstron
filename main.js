@@ -127,7 +127,7 @@ function createWindow () {
   })
 
   // Change HTTP user-agent
-  mainWindow.webContents.setUserAgent('Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36')
+  mainWindow.webContents.setUserAgent('Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chromium/78.0.3904.97 Chrome/78.0.3904.97 Safari/537.36')
 
   // Click close minimizes window
   mainWindow.on('close', (event) => {
