@@ -15,7 +15,7 @@ function getRemoteVersion () {
     const remoteVersion = axios.get('https://api.github.com/repos/vjba/whatstron/releases/latest').then(res => res.data.tag_name)
     return remoteVersion
   } catch (error) {
-    console.error(error)
+    console.debug(error)
   }
 }
 
@@ -23,14 +23,17 @@ async function checkUpdate () {
   const localVersion = getLocalVersion()
   const remoteVersion = await getRemoteVersion()
 
-  if (localVersion !== remoteVersion) {
-    console.info('Local version: ' + localVersion + '\nRemote version: ' + remoteVersion)
-    dialog.showMessageBoxSync(null, dialogOptions, (response) => {
-      if (response === 0) {
-        shell.openExternal('https://github.com/vjba/whatstron/releases/latest')
-        shell.openItem('http://google.com')
-      }
-    })
+  try {
+    if (localVersion !== remoteVersion) {
+      console.info('Local version: ' + localVersion + '\nRemote version: ' + remoteVersion)
+      dialog.showMessageBox(null, dialogOptions, (response) => {
+        if (response === 0) {
+          shell.openExternal('https://github.com/vjba/whatstron/releases/latest')
+        }
+      })
+    }
+  } catch (e) {
+    console.error(e)
   }
 }
 

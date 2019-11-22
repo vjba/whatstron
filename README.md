@@ -1,6 +1,6 @@
 # WhatsTron
 
-![Maintenance](https://img.shields.io/maintenance/yes/2019.svg)
+![Maintenance](https://img.shields.io/maintenance/no/2019.svg)
 [![GitHub release](https://img.shields.io/github/release/vjba/whatstron.svg)](https://github.com/vjba/whatstron/releases/latest)
 ![GitHub Release Date](https://img.shields.io/github/release-date/vjba/whatstron.svg)
 [![GitHub All Releases](https://img.shields.io/github/downloads/vjba/whatstron/total.svg)](https://github.com/vjba/whatstron/releases/latest)
